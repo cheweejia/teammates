@@ -703,6 +703,13 @@ export class SessionSubmissionPageComponent implements OnInit, AfterViewInit {
                     questionSubmissionFormModel.questionType, recipientSubmissionFormModel.responseDetails);
             isQuestionFullyAnswered = isQuestionFullyAnswered && !isFeedbackResponseDetailsEmpty;
 
+            //TODO Redefine what we mean by "fully answered questions". Questions with empty feedback response details
+            // may be considered fully answered if it has a minimum number of responses. May require implementing a
+            // minNumberOfResponses attribute to the questions.
+
+            // isQuestionFullyAnswered = isQuestionFullyAnswered && (!isFeedbackResponseDetailsEmpty
+            //     || !hasMinNumberOfResponses)
+
             if (!isFeedbackResponseDetailsEmpty) {
               responses.push({
                 recipient: recipientSubmissionFormModel.recipientIdentifier,
